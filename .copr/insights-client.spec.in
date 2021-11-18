@@ -132,6 +132,9 @@ rm -rf %{buildroot}
 %if 0%{?rhel} != 6
 %{_unitdir}/*
 %{_presetdir}/*
+%else
+%{_sysconfdir}/insights-client/insights-client.cron
+%config(noreplace) %{_sysconfdir}/sysconfig/insights-client
 %endif
 %attr(444,root,root) %{_sysconfdir}/insights-client/*.pem
 %attr(444,root,root) %{_sysconfdir}/insights-client/redhattools.pub.gpg
